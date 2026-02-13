@@ -1,0 +1,22 @@
+# Importing the NumPy module
+import numpy as np
+
+# Taking lists of elements
+list1 = [2, 40, 2, 502, 177, 7, 9]
+list2 = [2, 4, 4, 4, 5, 5, 7, 9]
+list3 = [290, 124, 127, 899]
+
+# Calculating average
+average = np.average(list1)
+
+# Calculating variance
+variance = np.var(list2)
+
+# Calculating standard deviation
+std_deviation = np.std(list3)
+
+# Printing results
+print("Average:", average)
+print("Variance:", variance)
+print("Standard Deviation:", std_deviation)
+
