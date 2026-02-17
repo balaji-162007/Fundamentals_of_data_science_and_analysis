@@ -1,17 +1,12 @@
-X = X.reshape(-1, 1)
-model = LinearRegression()
-model.fit(X, Y)
-slope = model.coef_[0]
-intercept = model.intercept_
-print(f"Slope (beta_1): {slope}")
-print(f"Intercept (beta_0): {intercept}")
-Y_pred = model.predict(X)
-plt.scatter(X, Y, color='blue', alpha=0.7, label='Data')  plt.plot(X, Y_pred, color='red', label='Fitted Line')  plt.xlabel('X')
-plt.ylabel('Y')
-plt.title('Simple Linear Regression: Fitted Line')  plt.legend()
-plt.show()
-r_squared = model.score(X, Y)
-print(f"R-squared: {r_squared}")
-X_new = np.array([[15]])
-Y_new = model.predict(X_new)
-print(f"Predicted Y for X = 15: {Y_new[0]}")
+import numpy as np
+import scipy.stats as stats
+mean_1 = 50
+mean_2 = 45
+std_1 = 10
+std_2 = 12
+size_1 = 40
+size_2 = 35
+z_score_two_sample = (mean_1 - mean_2) / np.sqrt((std_1**2 / size_1) + (std_2**2 / size_2))
+p_value_two_sample = 2 * (1 - stats.norm.cdf(abs(z_score_two_sample)))
+print(f"Z-Score: {z_score_two_sample}")
+print(f"P-value: {p_value_two_sample}")
