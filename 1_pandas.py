@@ -1,11 +1,20 @@
 import pandas as pd
 
 data = {
-    "calories": [420, 380, 390],
-    "duration": [50, 40, 45]
+    'Name': ['Alice', 'Bob', 'Charlie'],
+    'Age': [25, 30, 35],
+    'City': ['New York', 'Los Angeles', 'Chicago']
 }
 
-# load data into a DataFrame object:
 df = pd.DataFrame(data)
 
-print(df.loc[0])
+print(df.head())
+
+filtered_df = df[df['Age'] > 30]
+print(filtered_df)
+
+df['Senior'] = df['Age'] > 30
+print(df)
+
+grouped_df = df.groupby('City')['Age'].mean()
+print(grouped_df)
