@@ -1,12 +1,7 @@
-import numpy as np
 import scipy.stats as stats
-group_1 = np.array([23, 45, 67, 32, 45, 34, 43, 45, 56, 42])
-group_2 = np.array([45, 32, 23, 43, 46, 32, 21, 22, 43, 43])
-group_3 = np.array([65, 78, 56, 67, 82, 73, 74, 65, 68, 74])
-f_stat, p_value = stats.f_oneway(group_1, group_2, group_3)
-print(f"F-statistic: {f_stat}")
+import numpy as np
+sample_data = np.array([52, 55, 48, 49, 53, 54, 51, 50, 55, 58, 56, 57, 52, 51, 54, 53, 59, 61, 50,  52, 54, 53, 49, 47, 52, 51, 50, 48, 56, 55])
+population_mean = 50
+t_stat, p_value = stats.ttest_1samp(sample_data, population_mean)
+print(f"T-statistic: {t_stat}")
 print(f"P-value: {p_value}")
-if p_value < 0.05:
-    print("There is a significant difference between the group means.")
-else:
-    print("There is no significant difference between the group means.")
