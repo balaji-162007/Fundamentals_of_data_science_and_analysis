@@ -1,13 +1,14 @@
 import numpy as np
-import pandas as pd
-data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-range_value = max(data) - min(data)
-print(f"Range: {range_value}")
-variance_pandas = pd.Series(data).var()
-print(f"Variance (Pandas): {variance_pandas}")
-std_dev_pandas = pd.Series(data).std()
-print(f"Standard Deviation (Pandas): {std_dev_pandas}")
-variance_numpy = np.var(data)
-print(f"Variance (NumPy): {variance_numpy}")
-std_dev_numpy = np.std(data)
-print(f"Standard Deviation (NumPy): {std_dev_numpy}")
+import matplotlib.pyplot as plt
+mu = 0
+sigma = 1
+data = np.random.normal(mu, sigma, 1000)
+plt.hist(data, bins=30, density=True, alpha=0.6, color='g')
+xmin, xmax = plt.xlim()
+x = np.linspace(xmin, xmax, 100)
+p = 1/(sigma * np.sqrt(2 * np.pi)) * np.exp(-0.5 * ((x - mu) / sigma)**2)
+plt.plot(x, p, 'k', linewidth=2)
+plt.xlabel('Data values')
+plt.ylabel('Probability density')
+plt.title('Normal Distribution Curve')
+plt.show()
