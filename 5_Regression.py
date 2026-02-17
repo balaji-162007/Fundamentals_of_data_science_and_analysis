@@ -1,9 +1,17 @@
-import numpy as np
-import pandas as pd
-x = np.random.rand(100)
-y = 2 * x + np.random.normal(0, 0.1, 100)
-correlation_numpy = np.corrcoef(x, y)[0, 1]
-print(f"Correlation Coefficient (NumPy): {correlation_numpy}")
-df = pd.DataFrame({'x': x, 'y': y})
-correlation_pandas = df.corr().loc['x', 'y']
-print(f"Correlation Coefficient (Pandas): {correlation_pandas}")
+X = X.reshape(-1, 1)
+model = LinearRegression()
+model.fit(X, Y)
+slope = model.coef_[0]
+intercept = model.intercept_
+print(f"Slope (beta_1): {slope}")
+print(f"Intercept (beta_0): {intercept}")
+Y_pred = model.predict(X)
+plt.scatter(X, Y, color='blue', alpha=0.7, label='Data')  plt.plot(X, Y_pred, color='red', label='Fitted Line')  plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('Simple Linear Regression: Fitted Line')  plt.legend()
+plt.show()
+r_squared = model.score(X, Y)
+print(f"R-squared: {r_squared}")
+X_new = np.array([[15]])
+Y_new = model.predict(X_new)
+print(f"Predicted Y for X = 15: {Y_new[0]}")
