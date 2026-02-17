@@ -1,10 +1,12 @@
 import numpy as np
 import scipy.stats as stats
-mean_1 = 50
-mean_2 = 45
-std_1 = 10
-std_2 = 12
-size_1 = 40
-size_2 = 35
-z_score_two_sample = (mean_1 - mean_2) / np.sqrt((std_1**2 / size_1) + (std_2**2 / size_2))  p_value_two_sample = 2 * (1 - stats.norm.cdf(abs(z_score_two_sample)))  print(f"Z-Score: {z_score_two_sample}")
-print(f"P-value: {p_value_two_sample}")
+group_1 = np.array([23, 45, 67, 32, 45, 34, 43, 45, 56, 42])
+group_2 = np.array([45, 32, 23, 43, 46, 32, 21, 22, 43, 43])
+group_3 = np.array([65, 78, 56, 67, 82, 73, 74, 65, 68, 74])
+f_stat, p_value = stats.f_oneway(group_1, group_2, group_3)
+print(f"F-statistic: {f_stat}")
+print(f"P-value: {p_value}")
+if p_value < 0.05:
+    print("There is a significant difference between the group means.")
+else:
+    print("There is no significant difference between the group means.")
